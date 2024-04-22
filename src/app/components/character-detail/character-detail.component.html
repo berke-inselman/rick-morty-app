@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row py-5">
+    <h1>{{ characterDetail.name }}</h1>
+    <div class="col-lg-3 col-md-6">
+      <img
+        class="img-fluid py-4"
+        style="width: 100%"
+        src="{{ characterDetail.image }}"
+        alt="{{ characterDetail.name }}"
+      />
+    </div>
+    <div class="col-lg-9 col-md-6">
+      <div class="py-4">
+        <p><b>Gender: </b>{{ characterDetail.gender }}</p>
+        <p><b>Location: </b>{{ characterDetail.location.name }}</p>
+        <p><b>Origin: </b>{{ characterDetail.origin.name }}</p>
+        <p><b>Species: </b>{{ characterDetail.species }}</p>
+        <p><b>Status: </b>{{ characterDetail.status }}</p>
+        <p><b>Type: </b>{{ characterDetail.type }}</p>
+        <p>
+          <b>Created: </b>{{ characterDetail.created | date : "shortDate" }}
+        </p>
+      </div>
+    </div>
+    <h3 class="py-2"><b>Episodes</b></h3>
+    <div
+      class="col-lg-3 col-md-4 col-sm-6 col-xs-12 py-2"
+      *ngFor="let eps of episode"
+    >
+      <mat-card class="w-full p-2" style="min-height: 200px">
+        <h5>
+          <b>{{ eps.name }}</b>
+        </h5>
+        <p class="p-1 m-0"><b>Air Date: </b>{{ eps.air_date }}</p>
+        <p class="p-1 m-0"><b>Episode: </b>{{ eps.episode }}</p>
+        <p class="p-1 m-0">
+          <b>Created: </b>{{ eps.created | date : "shortDate" }}
+        </p>
+      </mat-card>
+    </div>
+  </div>
+</div>
